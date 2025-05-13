@@ -69,7 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(title: const Text("Testing")),
       body: Center(
         child: DefaultButton(
-          title: "Click Me",
+          title: "Tester",
+          buttoncolor: Colors.redAccent,
           onPressed: () {
             // Handle button press
             print("Button Pressed!");
