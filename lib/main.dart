@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'Component/default_button.dart';
+import 'Component/icon_button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -68,12 +69,22 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(title: const Text("Testing")),
       body: Center(
-        child: DefaultButton(
-          title: "Tester",
-          buttoncolor: Colors.redAccent,
+        // child: DefaultButton(
+        //   title: "Tester",
+        //   buttoncolor: Colors.redAccent,
+        //   onPressed: () {
+        //     // Handle button press
+        //     print("Button Pressed!");
+        //   },
+        // ),
+        child: IconButtonWithText(
+          title: "Click Me",
+          icon: Icons.add, // Specify the icon
+          buttoncolor: Colors.green,
+          textcolor: Colors.white,
           onPressed: () {
             // Handle button press
-            print("Button Pressed!");
+            print("Icon Button Pressed!");
           },
         ),
       ),
