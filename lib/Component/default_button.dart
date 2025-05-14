@@ -31,6 +31,7 @@ class DefaultButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8), // Corner radius
           ),
+          elevation: 0,
         ),
         onPressed: onPressed,
         child: Text(

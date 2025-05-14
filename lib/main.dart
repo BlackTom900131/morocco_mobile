@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'Component/default_button.dart';
 import 'Component/icon_button.dart';
+import 'Component/card.dart';
 
 void main() {
   runApp(const MyApp());
@@ -77,14 +78,13 @@ class _MyHomePageState extends State<MyHomePage> {
         //     print("Button Pressed!");
         //   },
         // ),
-        child: IconButtonWithText(
-          title: "Click Me",
-          icon: Icons.add, // Specify the icon
+        child: CustomCard(
+          title: "Building Name",
+          icon: Icons.info,
           buttoncolor: Colors.green,
-          textcolor: Colors.white,
+          textcolor: Colors.black,
           onPressed: () {
-            // Handle button press
-            print("Icon Button Pressed!");
+            print("Learn More Pressed!");
           },
         ),
       ),

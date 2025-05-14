@@ -6,6 +6,7 @@ class IconButtonWithText extends StatelessWidget {
   final Color buttoncolor;
   final Color textcolor;
   final Color bordercolor;
+  final double buttonheight;
   final VoidCallback onPressed;
 
   const IconButtonWithText({
@@ -15,13 +16,14 @@ class IconButtonWithText extends StatelessWidget {
     this.buttoncolor = Colors.blueAccent, // Default button color
     this.textcolor = Colors.white, // Default text color
     this.bordercolor = Colors.transparent, // Default border color
+    this.buttonheight = 48.0,
     required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 48, // Fixed height
+      height: buttonheight, // Fixed height 
       width: double.infinity, // Full width
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -33,6 +35,7 @@ class IconButtonWithText extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8), // Corner radius
           ),
+          elevation: 0,
         ),
         onPressed: onPressed,
         child: Row(
@@ -42,7 +45,7 @@ class IconButtonWithText extends StatelessWidget {
               icon,
               color: textcolor, // Icon color matches text color
             ),
-            const SizedBox(width: 8), // Space between icon and text
+            const SizedBox(width: 10), // Space between icon and text
             Text(
               title,
               style: TextStyle(
