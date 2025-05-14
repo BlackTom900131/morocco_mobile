@@ -32,19 +32,19 @@ class CustomCard extends StatelessWidget {
         children: [
           // Horizontal scroll view for images
           SizedBox(
-            height: 150.0,
+            height: 160.0,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                Image.network('https://via.placeholder.com/150', fit: BoxFit.cover),
-                Image.network('https://via.placeholder.com/150', fit: BoxFit.cover),
-                Image.network('https://via.placeholder.com/150', fit: BoxFit.cover),
+                Image.asset('../assets/images/house1.jpg', fit: BoxFit.cover),
+                Image.asset('../assets/images/house2.jpg', fit: BoxFit.cover),
+                Image.asset('../assets/images/house3.jpg', fit: BoxFit.cover),
               ],
             ),
           ),
           // Information about the building
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(0.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

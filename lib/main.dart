@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'Component/default_button.dart';
-import 'Component/icon_button.dart';
-import 'Component/card.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -11,27 +7,11 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Morocco Mobile',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: const MyHomePage(title: 'Morocco Mobile Home Page'),
@@ -42,15 +22,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -58,36 +29,104 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _selectedIndex = 0;
+
+  // List of widgets for each tab
+  final List<Widget> _pages = [
+    const HomePage(),
+    const ExplorePage(),
+    const PortfolioPage(),
+    const UpdatesPage(),
+    const ProfilePage(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(title: const Text("Testing")),
-      body: Center(
-        // child: DefaultButton(
-        //   title: "Tester",
-        //   buttoncolor: Colors.redAccent,
-        //   onPressed: () {
-        //     // Handle button press
-        //     print("Button Pressed!");
-        //   },
-        // ),
-        child: CustomCard(
-          title: "Building Name",
-          icon: Icons.info,
-          buttoncolor: Colors.green,
-          textcolor: Colors.black,
-          onPressed: () {
-            print("Learn More Pressed!");
-          },
-        ),
+      appBar: AppBar(title: Text(widget.title)),
+      body: _pages[_selectedIndex], // Display the selected page
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex, // Highlight the selected tab
+        onTap: _onItemTapped, // Handle tab selection
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.explore),
+            label: 'Explore',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.pie_chart),
+            label: 'Portfolio',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.update),
+            label: 'Updates',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
       ),
     );
+  }
+}
+
+// Home Page
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(child: Text('Home Page'));
+  }
+}
+
+// Explore Page
+class ExplorePage extends StatelessWidget {
+  const ExplorePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(child: Text('Explore Page'));
+  }
+}
+
+// Portfolio Page
+class PortfolioPage extends StatelessWidget {
+  const PortfolioPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(child: Text('Portfolio Page'));
+  }
+}
+
+// Updates Page
+class UpdatesPage extends StatelessWidget {
+  const UpdatesPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(child: Text('Updates Page'));
+  }
+}
+
+// Profile Page
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(child: Text('Profile Page'));
   }
 }
