@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'Home/home_main.dart';
+import 'package:morocco_mobile/Home/home_main.dart';
 
 void main() {
   runApp(const MyApp());
