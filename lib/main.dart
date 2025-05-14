@@ -49,11 +49,14 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
+      // appBar: AppBar(title: Text(widget.title)),
       body: _pages[_selectedIndex], // Display the selected page
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex, // Highlight the selected tab
         onTap: _onItemTapped, // Handle tab selection
+        selectedItemColor: Colors.blue, // Selected item color
+        unselectedItemColor: Colors.grey, // Unselected item color
+        type: BottomNavigationBarType.fixed, // Fixed type for bottom navigation
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
